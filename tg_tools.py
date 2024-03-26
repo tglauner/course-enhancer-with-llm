@@ -42,22 +42,24 @@ def extract_sections_from_beamer_latex(latex_content):
     section_pattern = r'\\section{([^}]*)}'
 
     # Find all section matches in the LaTeX content
-    section_matches = re.finditer(section_pattern, latex_content)
+    section_matches = list(re.finditer(section_pattern, latex_content))
 
     # Initialize a list to store the text segments for each section
     sections = []
 
     # Iterate through the section matches
-    for match in section_matches:
+    for i, match in enumerate(section_matches):
         section_name = match.group(1).strip()  # Get the section name
         section_start = match.start()            # Start position of the section
         section_end = match.end()                # End position of the section
 
-        # Find the content between the current section and the next section (or the end of the file)
-        next_section_match = next(section_matches, None)
-        if next_section_match:
-            section_content = latex_content[section_end:next_section_match.start()].strip()
+        # Determine the content for the current section
+        if i + 1 < len(section_matches):
+            # If not the last section, end at the start of the next section
+            next_section_start = section_matches[i + 1].start()
+            section_content = latex_content[section_end:next_section_start].strip()
         else:
+            # For the last section, end at the end of the file
             section_content = latex_content[section_end:].strip()
 
         # Add the section name and content to the sections list
