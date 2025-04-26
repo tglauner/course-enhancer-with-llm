@@ -7,19 +7,21 @@
 
 import os, sys
 from dotenv import load_dotenv
-import openai
+from openai import OpenAI
 import tg_tools
+from pathlib import Path
 
-COURSE_PATH = (
-  'C:\\Users\\Dad\\Dropbox\\2 - TG Investments and Research\\Projects\\'
-  'Capital Markets text book and course 2023\\Presentations\\'
-)
-DESCRIPTION_PATH = (
-  'C:\\Users\\Dad\\Dropbox\\2 - TG Investments and Research\\Projects\\'
-  'Capital Markets text book and course 2023\\Presentations\\LLM_Descriptions\\'
-)
-MODEL = "gpt-4-1106-preview"
-MAX_TOKENS = 4000
+INFO = True
+DEBUG = True
+
+# Define the base directory (change this if necessary)
+BASE_PATH = Path.home() / 'Dropbox' / '2 - TG Investments and Research' / 'Projects' / 'Capital Markets text book and course 2023' / 'Presentations 2.0'
+COURSE_PATH = BASE_PATH
+DESCRIPTION_PATH = BASE_PATH / 'LLM Descriptions 2.0'
+
+
+MODEL = "gpt-4-turbo"
+MAX_TOKENS = 1000
 
 def find_class_name(class_code: str) -> str:
       # Check if the directory exists
@@ -43,9 +45,10 @@ def generate_description_for_section(inputContent: str) -> str:
   prompt = 'You are a graduate school professor and create an online course that is being sold.'
   prompt += 'Write the answer to the following \"What will students be able to do at the end of this section?\"'
   prompt += 'Write in a straightforward style without metaphors or elaborate language.'
-  prompt += 'Provide 5-10 items depending on complexity of lecture. The more complex the more items.'
+  prompt += 'Provide five to ten items depending on complexity of lecture. The more complex the more items.'
   prompt += 'Your objective is to maximize the number of students the course is being sold to.'
   prompt += 'Do not exceed 200 character length'
+  prompt += 'Provide at the end one or two sentences to summarize the learning results.'
   prompt += 'The content given to you at the end is latex source code of the presentation for the lecture.'
   prompt += 'You are given one lecture only of the course. It is one section or the complete beamer presentation'
   prompt += 'The course content is a finance course for graduate or advanced undergraduate students or professionals who want to work for a bank.' 
@@ -54,8 +57,11 @@ def generate_description_for_section(inputContent: str) -> str:
 
   # print('Calling ', MODEL, ' for creating narrative for section')
   print("Estimated token length of input:", tg_tools.estimate_token_length(inputContent))
+  
+  load_dotenv()
+  client = OpenAI(api_key = os.getenv('OPENAI_API_KEY'))
 
-  completion = openai.chat.completions.create(
+  response = client.chat.completions.create(
     model=MODEL,
     messages=[
       {
@@ -63,13 +69,13 @@ def generate_description_for_section(inputContent: str) -> str:
         'content': prompt
       },
     ],
-    temperature=0,
-    top_p=0.5,
-    frequency_penalty=0.5,
-    presence_penalty=0.5
+    temperature = tg_tools.GPT4_parameters.temperature,
+    top_p = tg_tools.GPT4_parameters.top_p,
+    frequency_penalty = tg_tools.GPT4_parameters.frequency_penalty,
+    presence_penalty = tg_tools.GPT4_parameters.presence_penalty
   )
-  print("Estimated token length of output:", tg_tools.estimate_token_length(completion.choices[0].message.content))
-  return completion.choices[0].message.content
+  print("Estimated token length of output:", tg_tools.estimate_token_length(response.choices[0].message.content))
+  return response.choices[0].message.content
 
 def my_function(class_code):
   # Load tex file
@@ -83,10 +89,6 @@ def my_function(class_code):
     content = file.read()
 
   output = '****** ------ Description generated for ' + class_name + '\n\n'
-
-  # openai API setup
-  load_dotenv()
-  openai.api_key = os.getenv('OPENAI_API_KEY')
 
   print("Estimated token length of complete program input:", tg_tools.estimate_token_length(content))
 

@@ -1,0 +1,189 @@
+Finding class name ...
+Class name  700 Collateral Management  found.
+Calling gpt-4o-2024-11-20 for slide  1
+Calling  gpt-4o-2024-11-20  for enhancing narration for new section
+Estimated token length of input: 58
+***************** Prompt Start *****************
+You are a graduate school professor and an quantitative executive at an Investment Bank on the trading floor in New York.
+    Enhance the slides but do not make content significantly longer or shorter and do not change meaning significatnly.
+    Do not write full sentence and use grammar and style suitable for slides.
+    Do not be verbose and keep writing style for a slide presentation.
+    The slide and text you are given, is not the full latex document but only the frame part of a single slide.
+    It's important you update only the frame part and do not add items like begin{document}, etc.
+    The purpose of the class is to teach first year graduate students or new hires.
+    After the generation double check that the latex is correct and if needed correct it.
+    Do not add ```latex as it's somehow in the output.
+    Generate a single valid LaTeX slide using egin{frame} and \end{frame}. Ensure all environments are closed properly.
+    The wording should be excellent for a New York or London presentation to highly paid finance people and students. The original slide is this: 
+
+\begin{frame}{What is Collateral?}
+  \begin{itemize}
+    \item Financial transaction have intrinsic counterparty risk. The risk is that a counterparty does not fulfill its obligations.
+    \item Collateral is an asset (cash or securities) pledged as security against potential losses in financial transactions.
+    \item Common collateral types:
+    \begin{itemize}
+      \item Cash
+      \item Bonds
+      \item Equities
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+***************** Prompt End *****************
+
+Estimated token length of input: 58
+Estimated token length of output: 51
+Calling gpt-4o-2024-11-20 for slide  2
+Calling  gpt-4o-2024-11-20  for enhancing narration for new section
+Estimated token length of input: 34
+***************** Prompt Start *****************
+You are a graduate school professor and an quantitative executive at an Investment Bank on the trading floor in New York.
+    Enhance the slides but do not make content significantly longer or shorter and do not change meaning significatnly.
+    Do not write full sentence and use grammar and style suitable for slides.
+    Do not be verbose and keep writing style for a slide presentation.
+    The slide and text you are given, is not the full latex document but only the frame part of a single slide.
+    It's important you update only the frame part and do not add items like begin{document}, etc.
+    The purpose of the class is to teach first year graduate students or new hires.
+    After the generation double check that the latex is correct and if needed correct it.
+    Do not add ```latex as it's somehow in the output.
+    Generate a single valid LaTeX slide using egin{frame} and \end{frame}. Ensure all environments are closed properly.
+    The wording should be excellent for a New York or London presentation to highly paid finance people and students. The original slide is this: 
+
+\begin{frame}{Why is Collateral Required?}
+  \begin{itemize}
+    \item To mitigate Counterparty Credit Risk
+    \item Reduces exposure and potential financial losses in case of default.
+    \item Enhances market stability and investor confidence.
+  \end{itemize}
+\end{frame}
+
+***************** Prompt End *****************
+
+Estimated token length of input: 34
+Estimated token length of output: 32
+Calling gpt-4o-2024-11-20 for slide  3
+Calling  gpt-4o-2024-11-20  for enhancing narration for new section
+Estimated token length of input: 56
+***************** Prompt Start *****************
+You are a graduate school professor and an quantitative executive at an Investment Bank on the trading floor in New York.
+    Enhance the slides but do not make content significantly longer or shorter and do not change meaning significatnly.
+    Do not write full sentence and use grammar and style suitable for slides.
+    Do not be verbose and keep writing style for a slide presentation.
+    The slide and text you are given, is not the full latex document but only the frame part of a single slide.
+    It's important you update only the frame part and do not add items like begin{document}, etc.
+    The purpose of the class is to teach first year graduate students or new hires.
+    After the generation double check that the latex is correct and if needed correct it.
+    Do not add ```latex as it's somehow in the output.
+    Generate a single valid LaTeX slide using egin{frame} and \end{frame}. Ensure all environments are closed properly.
+    The wording should be excellent for a New York or London presentation to highly paid finance people and students. The original slide is this: 
+
+\begin{frame}{Initial Margin (IM) vs. Variation Margin (VM)}
+  \begin{itemize}
+    \item Initial Margin (IM):
+    \begin{itemize}
+      \item Posted upfront to cover potential future exposure.
+      \item Acts as a risk buffer.
+    \end{itemize}
+    \item Variation Margin (VM):
+    \begin{itemize}
+      \item Daily exchange reflecting mark-to-market changes.
+      \item Ensures ongoing counterparty exposure remains minimal.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+***************** Prompt End *****************
+
+Estimated token length of input: 56
+Estimated token length of output: 62
+Calling gpt-4o-2024-11-20 for slide  4
+Calling  gpt-4o-2024-11-20  for enhancing narration for new section
+Estimated token length of input: 134
+***************** Prompt Start *****************
+You are a graduate school professor and an quantitative executive at an Investment Bank on the trading floor in New York.
+    Enhance the slides but do not make content significantly longer or shorter and do not change meaning significatnly.
+    Do not write full sentence and use grammar and style suitable for slides.
+    Do not be verbose and keep writing style for a slide presentation.
+    The slide and text you are given, is not the full latex document but only the frame part of a single slide.
+    It's important you update only the frame part and do not add items like begin{document}, etc.
+    The purpose of the class is to teach first year graduate students or new hires.
+    After the generation double check that the latex is correct and if needed correct it.
+    Do not add ```latex as it's somehow in the output.
+    Generate a single valid LaTeX slide using egin{frame} and \end{frame}. Ensure all environments are closed properly.
+    The wording should be excellent for a New York or London presentation to highly paid finance people and students. The original slide is this: 
+
+\begin{frame}{Financial Products that Require Collateral\footnote{As we are a Capital Markets course we won't cover loans}}
+  \begin{itemize}
+    \item Bilateral OTC Derivatives:
+    \begin{itemize}
+      \item Collateral exchanged per ISDA Credit Support Annex (CSA).
+      \item Includes IM and VM.
+    \end{itemize}
+      \item Centrally Cleared Derivatives:
+    \begin{itemize}
+        \item Standardized margining (IM \& VM) managed by Central Clearing Parties (CCPs).
+    \end{itemize}
+      \item Exchange-Traded Derivatives (Futures \& Listed Options):
+    \begin{itemize}
+        \item Margin requirements set by exchanges (daily settlement).
+    \end{itemize}
+      \item Repos and Security Lending
+    \begin{itemize}
+      \item Haircut acts as a collateral buffer similar to IM.
+      \item Periodic collateral value checks act as a quasi VM.
+    \end{itemize}
+    \item TBAs
+    \begin{itemize}
+      \item IM required upfront to cover potential future exposure.
+      \item VM based on daily mark-to-market adjustments mitigating ongoing exposure.        
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+***************** Prompt End *****************
+
+Estimated token length of input: 134
+Estimated token length of output: 100
+Calling gpt-4o-2024-11-20 for slide  5
+Calling  gpt-4o-2024-11-20  for enhancing narration for new section
+Estimated token length of input: 142
+***************** Prompt Start *****************
+You are a graduate school professor and an quantitative executive at an Investment Bank on the trading floor in New York.
+    Enhance the slides but do not make content significantly longer or shorter and do not change meaning significatnly.
+    Do not write full sentence and use grammar and style suitable for slides.
+    Do not be verbose and keep writing style for a slide presentation.
+    The slide and text you are given, is not the full latex document but only the frame part of a single slide.
+    It's important you update only the frame part and do not add items like begin{document}, etc.
+    The purpose of the class is to teach first year graduate students or new hires.
+    After the generation double check that the latex is correct and if needed correct it.
+    Do not add ```latex as it's somehow in the output.
+    Generate a single valid LaTeX slide using egin{frame} and \end{frame}. Ensure all environments are closed properly.
+    The wording should be excellent for a New York or London presentation to highly paid finance people and students. The original slide is this: 
+
+\begin{frame}{Entities Involved in Collateral Management - 1}
+  \begin{itemize}
+    \item Bank's Internal Legal Entities
+    \begin{itemize}
+      \item Each legal entity may have its own CSA, margin thresholds, and custodial setup.
+      \item Important for managing netting sets, regulatory exposure, and liquidity buffers.
+    \end{itemize}
+    \item Counterparties in Transactions
+    \begin{itemize}
+      \item Direct trading counterparties for bilateral trades
+      \item Governed by ISDA and CSA agreements
+      \item Critical for exposure calculation, margin call exchange, and dispute resolution
+    \end{itemize}
+    \item Futures Commission Merchants (FCMs)
+    \begin{itemize}
+      \item Members of the exchange. Act as first entity that covers any losses.
+      \item Intermediaries that post margin to CCPs on behalf of clients.
+      \item Collect and manage VM/IM from clients; debit directly from accounts.
+      \item Examples: Wells Fargo, Bank of New York, Deutsche Bank.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+***************** Prompt End *****************
+
+Estimated token length of input: 142
+Estimated token length of output: 120
